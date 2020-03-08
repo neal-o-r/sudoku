@@ -37,16 +37,18 @@ def is_possible(square: Square, n: Digit, grid: Grid) -> bool:
     return n not in [grid[s] for s in peers[square]]
 
 
-def solve(grid: Grid) -> Grid:
+def solve(grid: Grid):
     empty = {k: v for k, v in grid.items() if v is '.'}
+    if empty == {}:
+        display(grid)
+
     for sq, digit in empty.items():
         for n in cols:
             if is_possible(sq, n, grid):
                 grid[sq] = n
                 solve(grid)
                 grid[sq] = '.'
-        return grid
-    display(grid)
+        return
 
 
 if __name__ == "__main__":
