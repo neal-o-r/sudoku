@@ -29,8 +29,9 @@ def chunks(string: Sudoku, n: int) -> list:
 
 
 def display(grid: Grid):
-    for l in chunks("".join(grid.values()), 9):
-        print(l)
+    for i, l in enumerate(chunks("".join(grid.values()), 9)):
+        if i % 3 is 0 and i != 0: print('-'*21)
+        print(" | ".join(" ".join(a) for a in chunks(l, 3)))
 
 
 def is_possible(square: Square, n: Digit, grid: Grid) -> bool:
