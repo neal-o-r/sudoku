@@ -53,4 +53,6 @@ def solve(grid: Grid):
 
 
 if __name__ == "__main__":
+    display(grid)
+    print()
     solve(grid)
